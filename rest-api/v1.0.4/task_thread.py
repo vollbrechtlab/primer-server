@@ -9,8 +9,12 @@ __copyright__ = "Copyright 2017, Vollbrecht Lab"
 __date__ = "3/27/2018"
 
 
-import threading, json, string, random, logging
+import threading, json, string, random, logging, os
 import fakePrimerDAFT
+
+# create log folder if it doesnt exist yet
+if not os.path.exists("logs"):
+    os.makedirs("logs")
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)

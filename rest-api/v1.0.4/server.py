@@ -29,10 +29,6 @@ CORS(app)
 if not os.path.exists("cache"):
     os.makedirs("cache")
 
-# create log folder if it doesnt exist yet
-if not os.path.exists("logs"):
-    os.makedirs("logs")
-
 """ Error Handling """
 
 @app.errorhandler(400)
