@@ -17,6 +17,7 @@ from flask_cors import CORS
 from task_thread import *
 from utilities import *
 
+from version import __version__
 basicRoute = '/v'+__version__+'/'
 
 
