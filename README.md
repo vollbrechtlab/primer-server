@@ -15,9 +15,8 @@ Install a web server and allow .htaccess
 Run `chmod +x *.sh rest-api/*.sh`
 
 ## Setup UI
-```
-sudo ./deploy_ui.sh
-```
+`sudo ./deploy_ui.sh $version`. For example `sudo .deploy_ui.sh 2.2.4`
+
 
 ## Setup REST API Server
 ```
