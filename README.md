@@ -7,6 +7,16 @@ All code is developed and tested on Ubuntu 16.04 and RedHat 7.
 ### UI
 Install a web server and allow .htaccess
 
+#### Enable the rewrite mod in apache2
+cd /etc/apache2/mods-enabled/
+sudo ln -s ../mods-available/rewrite.load .
+
+#### Enable the rewrite mod in virtualhost for the right directory
+<Directory "$Directory$">
+     AllowOverride All
+</Directory>
+
+
 ### REST API Server
 1. Install python3/pip3
 2. Install virtual environment
