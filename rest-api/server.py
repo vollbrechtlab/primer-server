@@ -22,7 +22,6 @@ from version import __version__
 
 with open("supported_genomes.json", 'r') as f:
     supportedGenomes = json.load(f)
-    pprint(supportedGenomes)
 
 
 # Flask app
