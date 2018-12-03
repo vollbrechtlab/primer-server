@@ -1,3 +1,4 @@
 #!/bin/bash
-pids=`ps ax | grep primer-server-rest-api-deamon | cut -f1 -d' '`
+task_name="gunicorn"
+pids=`ps ax | grep $task_name | cut -f1 -d' '`
 echo $pids | xargs  kill
