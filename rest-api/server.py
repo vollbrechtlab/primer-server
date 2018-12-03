@@ -14,6 +14,7 @@ import json, os
 from flask import Flask, jsonify, abort, request, make_response, url_for, send_file, send_from_directory, Response
 from flask_cors import CORS
 
+
 from task_thread import *
 from utilities import *
 
@@ -47,7 +48,7 @@ def not_found(error):
 
 
 """ Route handling """
-    
+
 @app.route('/', methods = ['GET'])
 def welcome():
     """ Say welcome
@@ -63,7 +64,7 @@ def getVersion():
 
 @app.route('/genomes', methods = ['GET'])
 def getSupportedGenomes():
-    return jsonify(supportedGenomes), 201
+    return jsonify(supportedGenomes), 200
 
 
 @app.route('/result/<string:taskId>', methods = ['GET'])
@@ -104,7 +105,7 @@ def getResult(taskId):
 
     except Exception as e:
         return jsonify( { 'status':'error', 'error_statement': 'result is broken'} ), 400
-    
+
 @app.route('/resultCSV/<string:taskId>', methods = ['GET'])
 def getResultCSV(taskId):
     try:
@@ -118,7 +119,7 @@ def getResultCSV(taskId):
             abort(404)
     response = make_response(csv, 201)
     cd = 'attachment; filename='+taskId+'_result.csv'
-    response.headers['Content-Disposition'] = cd 
+    response.headers['Content-Disposition'] = cd
     response.mimetype='text/csv'
     return response
 
@@ -147,5 +148,6 @@ def addTask():
     return jsonify( { 'status': 'ok', 'taskId': taskId} ), 201
 
 if __name__ == '__main__':
-    app.run(debug = True, port=8001)
-    #app.run(host='0.0.0.0', port='8001')
+    #app.run(debug = True, port=8001)
+    app.run(host='0.0.0.0', port='8001', threaded=True)
+

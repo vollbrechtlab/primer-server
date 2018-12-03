@@ -1,5 +1,3 @@
 #!/bin/bash
-pids=`ps ax | grep primer-server-rest-api-deamon | cut -c2-5`
-pid=${pids:0:4}
-echo "killing ${pid}"
-kill $pid
+pids=`ps ax | grep primer-server-rest-api-deamon | cut -f1 -d' '`
+echo $pids | xargs  kill
